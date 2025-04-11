@@ -1,0 +1,183 @@
+{
+  "info": {
+    "name": "RakBank API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection to test RakBank project APIs"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/rakbank/create",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rakbank",
+            "create"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get User by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rakbank/1",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rakbank",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"eventId\": 101,\n  \"tickets\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/rakbank/book",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "rakbank",
+            "book"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Event",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Concert\",\n  \"location\": \"Dubai\",\n  \"date\": \"2025-05-01\",\n  \"capacity\": 100\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/rakbank/eventCreateRequest",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "rakbank",
+            "eventCreateRequest"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reserve Tickets",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8082/rakbank/reserve/101?quantity=2",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "rakbank",
+            "reserve",
+            "101"
+          ],
+          "query": [
+            {
+              "key": "quantity",
+              "value": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Make Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"amount\": 100.0,\n  \"method\": \"CREDIT_CARD\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8083/payments",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "payments"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Send Notification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"message\": \"Your booking is confirmed!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8084/notifications",
+          "host": [
+            "localhost"
+          ],
+          "port": "8084",
+          "path": [
+            "notifications"
+          ]
+        }
+      }
+    }
+  ]
+}
